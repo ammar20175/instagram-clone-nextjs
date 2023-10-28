@@ -1,10 +1,10 @@
 import {
 	BookmarkIcon,
-	ChatBubbleBottomCenterIcon,
 	FaceSmileIcon,
 	HeartIcon,
 	EllipsisHorizontalIcon,
 	PaperAirplaneIcon,
+	ChatBubbleLeftEllipsisIcon,
 } from "@heroicons/react/24/outline";
 
 import { HeartIcon as HeartIconFilled } from "@heroicons/react/24/solid";
@@ -24,12 +24,43 @@ function Post({ id, username, userImg, img, caption }) {
 			</div>
 
 			{/* img */}
+			<img
+				loading="lazy"
+				className="object-cover w-full"
+				src={img}
+				alt="main-img"
+			/>
 
 			{/* Buttons */}
+			<div className="flex justify-between px-4 pt-4">
+				<div className="flex space-x-4">
+					<HeartIcon className="btn" />
+					<ChatBubbleLeftEllipsisIcon className="btn" />
+					<PaperAirplaneIcon className="btn h-6 -rotate-45" />
+				</div>
+
+				<BookmarkIcon className="btn" />
+			</div>
+
+			{/* caption */}
+			<p className=" truncate p-5">
+				<span className="font-bold mr-1">{username} </span>
+				{caption}
+			</p>
 
 			{/* comments */}
 
 			{/* input box */}
+			<form className="flex items-center p-4">
+				<FaceSmileIcon className="h-7" />
+
+				<input
+					className="border-none flex-1 focus:ring-0 outline-none"
+					type="text"
+					placeholder="Add a comment..."
+				/>
+				<button className="font-semibold text-blue-400">Post</button>
+			</form>
 		</div>
 	);
 }

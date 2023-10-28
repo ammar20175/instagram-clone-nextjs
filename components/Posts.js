@@ -1,11 +1,9 @@
 import Post from "./Post";
 
 const img1 =
-	"https://images.pexels.com/photos/18254694/pexels-photo-18254694/free-photo-of-man-with-suitcase-in-front-of-modern-building-in-baku-in-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
-
+	"https://images.pexels.com/photos/18847930/pexels-photo-18847930/free-photo-of-venice.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 const img2 =
-	"https://images.pexels.com/photos/18622543/pexels-photo-18622543/free-photo-of-go-home.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
-
+	"https://images.pexels.com/photos/18322030/pexels-photo-18322030/free-photo-of-cold-juicy-beverage.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 const posts = [
 	{
 		id: "123",
