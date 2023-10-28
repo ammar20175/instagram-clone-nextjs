@@ -5,5 +5,6 @@ export function createRandomUser() {
 		id: faker.string.uuid(),
 		username: faker.internet.userName(),
 		img: faker.image.avatar(),
+		company: faker.company.name(),
 	};
 }
