@@ -9,8 +9,11 @@ import {
 	PlusCircleIcon,
 } from "@heroicons/react/24/outline";
 import { HomeIcon } from "@heroicons/react/24/solid";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 function Header() {
+	const { data: session } = useSession();
+
 	return (
 		<header className="shadow-sm border-b bg-white sticky top-0 z-50">
 			<div className="flex justify-between max-w-6xl mx-5 lg:mx-auto">
@@ -50,24 +53,31 @@ function Header() {
 					<HomeIcon className="navBtn" />
 					<Bars3Icon className="h-6 md:hidden cursor-pointer" />
 
-					<div className="relative navBtn">
-						<PaperAirplaneIcon className="navBtn -rotate-45" />
-						<div
-							className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center
+					{session ? (
+						<>
+							<div className="relative navBtn">
+								<PaperAirplaneIcon className="navBtn -rotate-45" />
+								<div
+									className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center
 						 justify-center animate-pulse text-white"
-						>
-							3
-						</div>
-					</div>
-					<PlusCircleIcon className="navBtn" />
-					<UserGroupIcon className="navBtn" />
-					<HeartIcon className="navBtn" />
+								>
+									3
+								</div>
+							</div>
+							<PlusCircleIcon className="navBtn" />
+							<UserGroupIcon className="navBtn" />
+							<HeartIcon className="navBtn" />
 
-					<img
-						className="h-10 rounded-full cursor-pointer"
-						src="https://links.papareact.com/3k4"
-						alt="profile pic"
-					/>
+							<img
+								onClick={signOut}
+								className="h-10 w-10 rounded-full cursor-pointer"
+								src={session.user.image}
+								alt="profile pic"
+							/>
+						</>
+					) : (
+						<button onClick={signIn}>Sign In</button>
+					)}
 				</div>
 			</div>
 		</header>
