@@ -24,7 +24,7 @@ function Stories() {
 			{session && (
 				<div className="relative">
 					<Story img={session.user.image} username="you" />
-					<div className="bg-white rounded-full absolute top-9 -left-1">
+					<div className="bg-white rounded-full absolute top-9 right-0">
 						<PlusCircleIcon className=" h-6 w-6 font-bold text-blue-500" />
 					</div>
 				</div>

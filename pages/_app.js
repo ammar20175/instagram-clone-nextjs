@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { SessionProvider } from "next-auth/react";
+import { RecoilRoot } from "recoil";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function App({
@@ -9,9 +11,11 @@ export default function App({
 }) {
 	return (
 		<SessionProvider session={session}>
-			<main className={inter.className}>
-				<Component {...pageProps} />
-			</main>
+			<RecoilRoot>
+				<main className={inter.className}>
+					<Component {...pageProps} />
+				</main>
+			</RecoilRoot>
 		</SessionProvider>
 	);
 }
